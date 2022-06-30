@@ -124,6 +124,8 @@ mount:
 .PHONY: pdk
 pdk: venv/created
 	./venv/bin/$(PYTHON_BIN) -m pip install --upgrade --no-cache-dir volare
+	export http_proxy=socks5://127.0.0.1:31080
+	export https_proxy=socks5://127.0.0.1:31080
 	./venv/bin/volare enable --pdk $(PDK_FAMILY)
 
 .PHONY: survey
